@@ -1,11 +1,11 @@
-var sample_text = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+let sample_text = `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 
-var counter = {
+let counter = {
   a: 0,
   b: 0,
   c: 0,
@@ -35,14 +35,15 @@ var counter = {
 };
 
 function countLetters(counter, sample_text) {
+  let firstLetter = sample_text.toLowerCase().charAt(0);
+
   if (sample_text === "") {
     // Base case because chopping first letter on each iteration
     return;
   }
 
-  if (counter.hasOwnProperty(sample_text.toLowerCase().charAt(0))) {
-    // if property name (letter) = current first letter
-    counter[sample_text.toLowerCase().charAt(0)]++; // increase counter for that letter
+  if (counter.hasOwnProperty(firstLetter)) {
+    counter[firstLetter]++; // increase counter for that letter
   }
 
   countLetters(counter, sample_text.slice(1)); // chop first letter for next iteration
